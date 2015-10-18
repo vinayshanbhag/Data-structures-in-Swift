@@ -25,7 +25,7 @@ class List<T:Comparable> {
     var count:Int {
         var count = 0
         var current = head
-        while (current != nil){
+        while current != nil {
             count++
             current = current?.next
         }
