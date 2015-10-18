@@ -49,28 +49,30 @@ class Stack<T>{
     
     func printStack(){
         var current = top
-        while
+        if top == nil {
+            print("Empty Stack")
+            return
+        }
+        while current != nil {
+            print((current === top ? "top: ":"") + "\(current!.data!) ", terminator:"")
+            current = current?.next
+        }
+        print(":bottom")
     }
 }
 
 var numberStack = Stack<Int>()
+numberStack.peek()
+numberStack.count
 numberStack.pop()
+
 for i in 1...10{
-    numberStack.push(i)
+    var n = Int(arc4random_uniform(101))
+    numberStack.push(n)
+    numberStack.printStack()
 }
-numberStack.peek()
-numberStack.count
-numberStack.pop()
-numberStack.count
-numberStack.peek()
-numberStack.pop()
-numberStack.pop()
-numberStack.pop()
-numberStack.pop()
-numberStack.pop()
-numberStack.pop()
-numberStack.pop()
-numberStack.pop()
-numberStack.pop()
-numberStack.count
-numberStack.peek()
+
+while numberStack.pop() != nil {
+    print("popped stack ",terminator:"")
+    numberStack.printStack()
+}
