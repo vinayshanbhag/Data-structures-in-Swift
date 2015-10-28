@@ -66,13 +66,63 @@ numberStack.peek()
 numberStack.count
 numberStack.pop()
 
-for i in 1...10{
+for i in 1...5{
     var n = Int(arc4random_uniform(101))
     numberStack.push(n)
     numberStack.printStack()
 }
 
 while numberStack.pop() != nil {
-    print("popped stack ",terminator:"")
+    print("popped stack- ",terminator:"")
     numberStack.printStack()
 }
+
+
+// A Stack using Swift Array
+class ArrayStack<T> {
+    var stack = Array<T>()
+    
+    var count:Int {
+        return stack.count
+    }
+    
+    func push(data:T){
+        stack.append(data)
+    }
+    
+    func pop()->T? {
+        if stack.count > 0 {
+            return stack.removeAtIndex(stack.count-1)
+        }
+        return nil
+    }
+    
+    func peek()->T?{
+        if stack.count > 0 {
+            return stack[stack.count-1]
+        }
+        return nil
+    }
+    
+    func printStack(){
+        if stack.count > 0{
+            print("bottom: \(stack) :top")
+        } else {
+            print("Empty stack")
+        }
+    }
+    
+}
+
+var aStack = ArrayStack<Int>()
+for i in 1...10{
+    aStack.push(i)
+    //aStack.printStack()
+}
+for i in 1...10{
+    aStack.pop()
+    //aStack.printStack()
+}
+aStack.pop()
+aStack.peek()
+
